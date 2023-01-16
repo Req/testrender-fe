@@ -1,36 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
+<style>
+    body {
+        display: grid;
+        place-items: center;
+    }
+</style>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
+<button>Hi þere</button>
+<script>
+    document.querySelector("button").addEventListener("click", () => {
+        const url = "https://testing-render-k99g.onrender.com"
+        const cfg = {
+            method: "POST",
+            credentials: "include",
+            body: '{"payload":"bunch of giant raccoons"}',
+            headers: { "Content-Type": "application/json" }
+        }
 
-    <body>
-        <button>Hi þere</button>
-        <script>
-            let toggle = false;
-
-            document.querySelector("button").addEventListener("click", () => {
-                const cfg = {
-                    method: "POST",
-                    credentials: "include",
-                    body: '{"payload":"bunch of giant raccoons"}',
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                }
-                const url = toggle ?
-                    "https://testing-render-k99g.onrender.com"
-                    : "https://rendertest.thefabwebdev.com"
-
-                toggle = !toggle
-
-                fetch(url + "/blorp", cfg)
-            })
-        </script>
-    </body>
-
-</html>
+        fetch(url + "/blorp", cfg)
+            .then(r=>r.text())
+            .then(console.log)
+    })
+</script>
