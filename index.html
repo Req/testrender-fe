@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <button>Hi þere</button>
+        <script>
+            let toggle = false;
+
+            document.querySelector("button").addEventListener("click", () => {
+                const cfg = {
+                    method: "POST",
+                    credentials: "include",
+                    body: '{"payload":"bunch of giant raccoons"}',
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+                const url = toggle ?
+                    "https://testing-render-k99g.onrender.com"
+                    : "https://rendertest.thefabwebdev.com"
+
+                toggle = !toggle
+
+                fetch(url + "/blorp", cfg)
+            })
+        </script>
+    </body>
+
+</html>
